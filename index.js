@@ -1,10 +1,11 @@
-var debug = require('debug')('frontend-code-challenge');
+//var debug = require('debug')('frontend-code-challenge');
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var logger = require('./lib/logger');
+const nunjucks = require("nunjucks");
 
 var users = require('./routes/users');
 
@@ -17,6 +18,11 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/users', users);
+
+nunjucks.configure("templates", {
+  autoescape: true,
+  express: app
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
