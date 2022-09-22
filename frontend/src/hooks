@@ -1,0 +1,20 @@
+import React from 'react';
+import { useState } from 'react';
+import Api from './api';
+
+const UseData = (type, id) =>{
+    const [data, setData] = useState([]);
+    const [loading, setLoading] = useState(true);
+   
+
+    const getData = async () => {
+        const data = (type === 'user') ? await Api.getCurrentUser(id) : await Api.getUsers();
+        setData(data);
+        setLoading(false);
+
+    };
+
+    return { data, getData , loading};
+}
+
+export default UseData;

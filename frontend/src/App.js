@@ -6,23 +6,14 @@ import UserProfile from './UserProfile';
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <BrowserRouter>
         <Switch>
-          <Route path="/admin" component={AdminPage}/>
-          <AdminPage/>
-          <Route/>
-
-          <Route path="/user/:id" component={UserProfile}/>
-          <UserProfile/>
-          <Route/>
-
-          <Route path="/" component={UserRegister}/>
-          <UserRegister/>
-          <Route/>
+          <Route exact path="/users" component={AdminPage}/>
+          <Route exact path="/users/:id" component={UserProfile}/>
+          <Route exact path="/" component={UserRegister}/>
         </Switch>
       </BrowserRouter>
-
     </div>
   );
 }
