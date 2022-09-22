@@ -3,10 +3,10 @@ var router = express.Router();
 var _ = require('lodash');
 var logger = require('../lib/logger');
 var log = logger();
-//const User = require("../models/user");
-const { createToken } = require("../token");
 
-var users = require('../init_data.json').data;
+
+
+var users = require('../../init_data.json').data;
 var curId = _.size(users);
 
 /* GET users listing. */
